@@ -11,6 +11,8 @@
   lsusb
   ```
 
+https://drive.google.com/uc?export=view&id=1pi_kEDyWhPI-PsRzbwUYEoRtYpkQMYsi
+
 ## Netdiscover
 
 ### Descripción
