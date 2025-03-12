@@ -61,7 +61,6 @@ Nmap es un programa de código abierto que sirve para explorar redes, realizar a
 - Ejemplo para puertos 80, 135, 2000, 18080 en un rango específico:
   ```bash
   sudo nmap -p 80,135,2000,18080 192.168.1.13
-  sudo nmap 192.168.1.1-223.*
   ```
 
 ### Ver sistema operativo
