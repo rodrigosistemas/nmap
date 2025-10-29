@@ -1,4 +1,3 @@
-```markdown
 # Comandos de Netdiscover y Nmap
 
 ## Listar versión y dispositivos
