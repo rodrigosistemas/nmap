@@ -1,134 +1,179 @@
-# Comandos de Netdiscover y Nmap
+# Netdiscover & Nmap Commands
 
-## Listar versión y dispositivos
-- Listar versión de GCC: 
+![nmap](https://drive.google.com/uc?export=view\&id=1pi_kEDyWhPI-PsRzbwUYEoRtYpkQMYsi)
+
+## List GCC version & devices
+
+* Show GCC version:
+
   ```bash
   gcc -v
   ```
-- Listar dispositivos en la PC:
+* List devices on the PC:
+
   ```bash
   lsusb
   ```
 
-<img src="https://drive.google.com/uc?export=view&id=1pi_kEDyWhPI-PsRzbwUYEoRtYpkQMYsi" alt="nmap">
+---
 
 ## Netdiscover
 
-### Descripción
-Netdiscover es una herramienta de descubrimiento de redes.
+### Description
 
-### Comandos básicos
-- Ayuda:
+Netdiscover is a network discovery tool.
+
+### Basic commands
+
+* Help:
+
   ```bash
   netdiscover -help
   ```
 
-### Descubrir dispositivos
-- Ejecutar netdiscover para descubrir dispositivos en un rango de IP:
+### Discover devices
+
+* Run netdiscover to find devices in an IP range:
+
   ```bash
   sudo netdiscover -r 192.168.1.1/24
   ```
-  - `-r` : Define el rango de IP
-  - `192.168.1.1/24` : Especifica el rango de IP a escanear
 
-- Utilizando una interfaz específica:
+  * `-r` : Sets the IP range
+  * `192.168.1.1/24` : Specifies the IP range to scan
+
+* Using a specific interface:
+
   ```bash
   netdiscover -i eth0 -r 192.168.43.0/24
   ```
-  - `-i` : Define la interfaz de red (ej. eth0)
+
+  * `-i` : Sets the network interface (e.g. eth0)
+
+---
 
 ## Nmap
 
-### Descripción
-Nmap es un programa de código abierto que sirve para explorar redes, realizar análisis de seguridad y búsqueda de puertos.
+### Description
 
-### Comandos básicos
-- Ayuda:
+Nmap is an open-source utility for network discovery, security auditing, and port scanning.
+
+### Basic commands
+
+* Help:
+
   ```bash
   nmap --help
   ```
-- Descubrimiento de dispositivos (Ping scan):
+* Device discovery (Ping scan):
+
   ```bash
   sudo nmap -sn <target_IP>
   ```
-- Escaneo de puertos (Mapeo de IP):
+* Port scan (IP mapping):
+
   ```bash
   sudo nmap <target_IP>
   ```
 
-### Escanear un puerto específico
-- Ejemplo para puertos 80, 135, 2000, 18080 en un rango específico:
+### Scan specific ports
+
+* Example scanning ports 80, 135, 2000, 18080 on a specific host:
+
   ```bash
   sudo nmap -p 80,135,2000,18080 192.168.1.13
   ```
 
-### Ver sistema operativo
-- Detectar el sistema operativo de un objetivo:
+### OS detection
+
+* Detect the operating system of a target:
+
   ```bash
   sudo nmap -O <target_IP>
   ```
 
-### Evasión de Firewall (Stealth Scans)
-- `-sX` (Stealth Xmas Tree Scan): Envía paquetes con los flags FIN, URG, y PUSH activados.
+### Firewall evasion (Stealth Scans)
+
+* `-sX` (Xmas Tree Scan): Sends packets with FIN, URG, and PUSH flags set.
+
   ```bash
   sudo nmap -sX <target_IP>
   ```
-- `-sN` (Stealth Null Scan): Envía paquetes sin flags activados.
+* `-sN` (Null Scan): Sends packets with no flags set.
+
   ```bash
   sudo nmap -sN <target_IP>
   ```
-- `-sF` (Stealth FIN Scan): Usa paquetes con el flag FIN activado.
+* `-sF` (FIN Scan): Uses packets with the FIN flag set.
+
   ```bash
   sudo nmap -sF <target_IP>
   ```
-- `-P0` : No envía ping al objetivo antes del escaneo para evitar bloqueo del firewall.
+* `-P0` : Do not ping the target before scanning (skip host discovery).
+
   ```bash
   sudo nmap -P0 <target_IP>
   ```
 
-### Evasión de Firewall (II)
-- Scan Fragment Packets (`-f`): Envía paquetes pequeños de 8 bytes.
+### Firewall evasion (continued)
+
+* Fragment packets (`-f`): Sends small fragments (8 bytes).
+
   ```bash
   sudo nmap -f <target_IP>
   ```
-- Scan MTU (`--mtu`): Especifica un tamaño de MTU.
+* MTU (`--mtu`): Specify an MTU size.
+
   ```bash
   sudo nmap --mtu 16 <target_IP>
   ```
-- Scan Decoy (`-D`): Usa hosts señuelo para anonimizar el escaneo.
+* Decoy scan (`-D`): Use decoy hosts to obscure the scan origin.
+
   ```bash
   sudo nmap -D RND:10 <target_IP>
   ```
 
-### Exportar resultados de escaneos
-- Exportar en formato `.txt` o `.xml`:
+### Export scan results
+
+* Export to `.txt` or `.xml`:
+
   ```bash
   sudo nmap -sV 192.168.1.1 -oN Desktop/test.txt
   sudo nmap -sV 192.168.1.1 -oX Desktop/test.xml
   ```
 
-### Escanear los primeros 1000 puertos
-- Escaneo rápido de los primeros 1000 puertos:
+### Scan first 1000 ports
+
+* Quick scan of the first 1000 ports:
+
   ```bash
   sudo nmap -p 1-1000 <ip_address>
   ```
 
-### Escaneo de puertos TCP y UDP
-- Escaneo de puertos TCP:
+### TCP and UDP scans
+
+* TCP port scan:
+
   ```bash
   sudo nmap -sT <target_IP>
   ```
-- Escaneo de puertos UDP:
+* UDP port scan:
+
   ```bash
   sudo nmap -sU <target_IP>
   ```
 
+---
+
 ## ARP Spoofing
-- Instalación de arpspoof:
+
+* Install `arpspoof` (part of dsniff):
+
   ```bash
   sudo apt install dsniff
   ```
-- Ejecutar arpspoof:
+* Run arpspoof:
+
   ```bash
   sudo arpspoof -i wlan0 -t 192.168.1.9 192.168.1.1
   ```
