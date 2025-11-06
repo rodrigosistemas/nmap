@@ -1,6 +1,6 @@
 # Netdiscover & Nmap Commands
 
-![nmap](https://drive.google.com/uc?export=view\&id=1pi_kEDyWhPI-PsRzbwUYEoRtYpkQMYsi)
+<img src="https://github.com/rodrigosistemas/nmap/blob/main/img/nmap.jpeg" alt="nmap" width="250"/>
 
 ## List GCC version & devices
 
