@@ -1,6 +1,6 @@
 # Netdiscover & Nmap Commands
 
-<img src="https://github.com/rodrigosistemas/nmap/blob/main/img/nmap.jpeg" alt="nmap" width="250"/>
+<img src="https://github.com/rodrigosistemas/nmap/blob/main/img/nmap.jpeg" alt="nmap" width="500"/>
 
 ## List GCC version & devices
 
